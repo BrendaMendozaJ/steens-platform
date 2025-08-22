@@ -228,10 +228,10 @@ export default function Dashboard() {
   }
   
   return (
-    <div className="min-h-screen flex">
-      {/* COLUMNA IZQUIERDA - FEED (50% del ancho) */}
-      <div className="w-1/2 min-h-screen overflow-y-auto bg-gradient-to-b from-gray-900/50 to-black/50 border-r border-white/10">
-        <div className="p-6">
+    <div className="min-h-screen flex flex-col lg:flex-row">
+      {/* COLUMNA IZQUIERDA - FEED (50% del ancho en desktop, 100% en móvil) */}
+      <div className="w-full lg:w-1/2 min-h-screen overflow-y-auto bg-gradient-to-b from-gray-900/50 to-black/50 lg:border-r border-white/10">
+        <div className="p-4 sm:p-6">
           {/* Header del Feed */}
           <div className="glass-effect rounded-3xl p-6 mb-6 text-white">
             <div className="flex items-center justify-between mb-4">
@@ -329,9 +329,9 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* COLUMNA DERECHA - DASHBOARD CONTENT (50% del ancho) */}
-      <div className="w-1/2 min-h-screen overflow-y-auto">
-        <div className="p-6">
+      {/* COLUMNA DERECHA - DASHBOARD CONTENT (50% del ancho en desktop, 100% en móvil) */}
+      <div className="w-full lg:w-1/2 min-h-screen overflow-y-auto">
+        <div className="p-4 sm:p-6">
           {/* Header personalizado compacto */}
           <div className="glass-effect rounded-3xl p-6 mb-6 text-white">
             <div className="flex items-center justify-between mb-4">
@@ -404,7 +404,7 @@ export default function Dashboard() {
           </div>
 
           {/* Módulos principales en grid compacto */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
             {/* Test Vocacional */}
             <Link href="/test-vocacional" className="steens-card p-6 text-white hover-lift group">
               <div className="text-center">
