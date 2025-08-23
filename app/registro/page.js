@@ -14,6 +14,16 @@ export default function Registro() {
   })
   
   const [step, setStep] = useState(1)
+  const [passwordStrength, setPasswordStrength] = useState({
+    score: 0,
+    checks: {
+      length: false,
+      uppercase: false,
+      lowercase: false,
+      number: false,
+      special: false
+    }
+  })
   
   const interesesSTEM = [
     '💻 Programación', '🔢 Matemáticas', '⚛️ Física', '🧪 Química', 
@@ -22,6 +32,37 @@ export default function Registro() {
   ]
   
   const grados = ['3ro de Secundaria', '4to de Secundaria', '5to de Secundaria', 'Ya acabé la escuela']
+  
+  const validatePassword = (password) => {
+    const checks = {
+      length: password.length >= 8,
+      uppercase: /[A-Z]/.test(password),
+      lowercase: /[a-z]/.test(password),
+      number: /\d/.test(password),
+      special: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+    }
+    
+    const score = Object.values(checks).filter(Boolean).length
+    return { score, checks }
+  }
+  
+  const handlePasswordChange = (password) => {
+    setFormData({...formData, password})
+    setPasswordStrength(validatePassword(password))
+  }
+  
+  const getStrengthColor = (score) => {
+    if (score < 2) return 'text-red-400'
+    if (score < 4) return 'text-yellow-400'
+    return 'text-green-400'
+  }
+  
+  const getStrengthText = (score) => {
+    if (score < 2) return 'Muy débil'
+    if (score < 4) return 'Débil'
+    if (score < 5) return 'Buena'
+    return 'Muy segura'
+  }
   
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -89,12 +130,65 @@ export default function Registro() {
               <input
                 type="password"
                 required
-                minLength="8"
                 value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
+                onChange={(e) => handlePasswordChange(e.target.value)}
                 className="modern-input w-full p-4 text-white placeholder-white/60"
-                placeholder="Mínimo 8 caracteres"
+                placeholder="Crea una contraseña segura"
               />
+              
+              {formData.password && (
+                <div className="mt-3 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-white/70">Seguridad:</span>
+                    <span className={`text-sm font-semibold ${getStrengthColor(passwordStrength.score)}`}>
+                      {getStrengthText(passwordStrength.score)}
+                    </span>
+                  </div>
+                  
+                  <div className="w-full bg-white/20 rounded-full h-2">
+                    <div 
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        passwordStrength.score < 2 ? 'bg-red-400' :
+                        passwordStrength.score < 4 ? 'bg-yellow-400' : 'bg-green-400'
+                      }`}
+                      style={{ width: `${(passwordStrength.score / 5) * 100}%` }}
+                    ></div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className={`flex items-center space-x-1 ${
+                      passwordStrength.checks.length ? 'text-green-400' : 'text-white/50'
+                    }`}>
+                      <span>{passwordStrength.checks.length ? '✓' : '○'}</span>
+                      <span>8+ caracteres</span>
+                    </div>
+                    <div className={`flex items-center space-x-1 ${
+                      passwordStrength.checks.uppercase ? 'text-green-400' : 'text-white/50'
+                    }`}>
+                      <span>{passwordStrength.checks.uppercase ? '✓' : '○'}</span>
+                      <span>Mayúscula</span>
+                    </div>
+                    <div className={`flex items-center space-x-1 ${
+                      passwordStrength.checks.lowercase ? 'text-green-400' : 'text-white/50'
+                    }`}>
+                      <span>{passwordStrength.checks.lowercase ? '✓' : '○'}</span>
+                      <span>Minúscula</span>
+                    </div>
+                    <div className={`flex items-center space-x-1 ${
+                      passwordStrength.checks.number ? 'text-green-400' : 'text-white/50'
+                    }`}>
+                      <span>{passwordStrength.checks.number ? '✓' : '○'}</span>
+                      <span>Número</span>
+                    </div>
+                    <div className={`flex items-center space-x-1 col-span-2 ${
+                      passwordStrength.checks.special ? 'text-green-400' : 'text-white/50'
+                    }`}>
+                      <span>{passwordStrength.checks.special ? '✓' : '○'}</span>
+                      <span>Carácter especial (!@#$%^&*)</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
             
             <div className="grid grid-cols-2 gap-4">
@@ -130,9 +224,10 @@ export default function Registro() {
             
             <button
               type="submit"
-              className="w-full btn-steens text-white font-bold py-5 px-8 rounded-2xl text-lg"
+              disabled={passwordStrength.score < 5}
+              className="w-full btn-steens disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-5 px-8 rounded-2xl text-lg"
             >
-              Continuar ✨
+              {passwordStrength.score < 5 ? '🔒 Contraseña muy segura requerida' : 'Continuar ✨'}
             </button>
           </form>
         )}
