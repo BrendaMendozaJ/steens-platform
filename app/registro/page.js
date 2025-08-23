@@ -92,7 +92,7 @@ export default function Registro() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="modern-container p-10 max-w-2xl w-full text-white animate-scale-in">
         <div className="text-center mb-8">
-          <div className="text-5xl mb-4">✨</div>
+          <div className="text-5xl mb-4">🎆</div>
           <h1 className="text-4xl font-bold steens-gradient-text mb-3">
             ¡Bienvenida a STEENS!
           </h1>
@@ -227,7 +227,7 @@ export default function Registro() {
               disabled={passwordStrength.score < 5}
               className="w-full btn-steens disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-5 px-8 rounded-2xl text-lg"
             >
-              {passwordStrength.score < 5 ? '🔒 Contraseña muy segura requerida' : 'Continuar ✨'}
+              {passwordStrength.score < 5 ? '🔒 Contraseña muy segura requerida' : 'Continuar ➡️'}
             </button>
           </form>
         )}
@@ -235,7 +235,7 @@ export default function Registro() {
         {step === 2 && (
           <div className="space-y-5">
             <div className="text-center">
-              <h2 className="text-2xl font-bold mb-2">¿Qué te emociona más? 🚀</h2>
+              <h2 className="text-2xl font-bold mb-2">¿Qué te emociona más? 💫</h2>
               <p className="text-sm opacity-90">Selecciona todas las áreas STEM que te interesen</p>
             </div>
             
@@ -257,7 +257,7 @@ export default function Registro() {
             </div>
             
             <div className="steens-card rounded-2xl p-5 text-center">
-              <div className="text-3xl mb-2">🎯</div>
+              <div className="text-3xl mb-2">🎆</div>
               <p className="font-semibold text-steens-pink">¡Perfecto!</p>
               <p className="text-sm opacity-90 mt-1">
                 Has seleccionado {formData.intereses.length} áreas de interés
@@ -269,7 +269,7 @@ export default function Registro() {
               disabled={formData.intereses.length === 0}
               className="w-full btn-steens disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-5 px-8 rounded-2xl text-lg"
             >
-              🚀 ¡Crear mi cuenta STEENS!
+              ➡️ ¡Crear mi cuenta STEENS!
             </button>
           </div>
         )}

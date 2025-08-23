@@ -31,7 +31,8 @@ const feedPreviewPosts = [
     comments: 45,
     shares: 12,
     tags: ["nanotecnología", "agua", "innovación"],
-    ageGroup: ["Pioneras", "Innovadoras"]
+    ageGroup: ["Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 2,
@@ -43,7 +44,8 @@ const feedPreviewPosts = [
     comments: 67,
     shares: 23,
     tags: ["programación", "apps", "emprendimiento"],
-    ageGroup: ["Pioneras", "Innovadoras"]
+    ageGroup: ["Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 3,
@@ -55,7 +57,8 @@ const feedPreviewPosts = [
     comments: 112,
     shares: 45,
     tags: ["química", "experimentos", "educación"],
-    ageGroup: ["Exploradoras"]
+    ageGroup: ["Exploradoras"],
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 4,
@@ -67,7 +70,8 @@ const feedPreviewPosts = [
     comments: 45,
     shares: 67,
     tags: ["matemáticas", "naturaleza", "fractales"],
-    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"]
+    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 5,
@@ -79,7 +83,8 @@ const feedPreviewPosts = [
     comments: 89,
     shares: 78,
     tags: ["ingeniería", "sostenibilidad", "Perú"],
-    ageGroup: ["Pioneras", "Innovadoras"]
+    ageGroup: ["Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 6,
@@ -91,7 +96,8 @@ const feedPreviewPosts = [
     comments: 67,
     shares: 89,
     tags: ["biología", "marina", "descubrimiento"],
-    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"]
+    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 7,
@@ -103,7 +109,8 @@ const feedPreviewPosts = [
     comments: 134,
     shares: 56,
     tags: ["robótica", "reciclaje", "Arduino"],
-    ageGroup: ["Exploradoras", "Pioneras"]
+    ageGroup: ["Exploradoras", "Pioneras"],
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 8,
@@ -115,7 +122,8 @@ const feedPreviewPosts = [
     comments: 123,
     shares: 89,
     tags: ["startup", "inversión", "educación"],
-    ageGroup: ["Pioneras", "Innovadoras"]
+    ageGroup: ["Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 9,
@@ -127,7 +135,8 @@ const feedPreviewPosts = [
     comments: 89,
     shares: 23,
     tags: ["física", "cuántica", "experimento"],
-    ageGroup: ["Pioneras", "Innovadoras"]
+    ageGroup: ["Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 10,
@@ -139,7 +148,8 @@ const feedPreviewPosts = [
     comments: 156,
     shares: 78,
     tags: ["IA", "historia", "mujeres"],
-    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"]
+    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 11,
@@ -151,7 +161,8 @@ const feedPreviewPosts = [
     comments: 67,
     shares: 45,
     tags: ["astronomía", "Júpiter", "observación"],
-    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"]
+    ageGroup: ["Exploradoras", "Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=200&fit=crop&crop=center"
   },
   {
     id: 12,
@@ -163,7 +174,8 @@ const feedPreviewPosts = [
     comments: 89,
     shares: 134,
     tags: ["biotecnología", "plásticos", "ambiente"],
-    ageGroup: ["Pioneras", "Innovadoras"]
+    ageGroup: ["Pioneras", "Innovadoras"],
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=200&fit=crop&crop=center"
   }
 ]
 
@@ -264,13 +276,22 @@ export default function Dashboard() {
                       <p className="font-bold text-white text-xs sm:text-sm">{post.author}</p>
                       <p className="text-xs text-white/60">{post.time}</p>
                     </div>
-                    <div className="bg-steens-purple/30 text-steens-purple px-2 py-1 rounded-full text-xs font-semibold">
+                    <div className="bg-gradient-to-r from-steens-pink to-steens-magenta text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg border border-white/20">
                       Para ti
                     </div>
                   </div>
                   <p className="text-white mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm">
                     {post.content}
                   </p>
+                  {post.image && (
+                    <div className="mb-3 sm:mb-4 rounded-xl overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.author}
+                        className="w-full h-32 sm:h-40 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center justify-between text-xs text-white/70 mb-2 sm:mb-3">
                     <span>❤️ {post.likes}</span>
                     <span>💬 {post.comments}</span>
@@ -296,13 +317,22 @@ export default function Dashboard() {
                       <p className="font-bold text-white text-xs sm:text-sm">{post.author}</p>
                       <p className="text-xs text-white/60">{post.time}</p>
                     </div>
-                    <div className="bg-steens-pink/30 text-steens-pink px-2 py-1 rounded-full text-xs font-semibold">
+                    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg border border-white/20">
                       Destacado
                     </div>
                   </div>
                   <p className="text-white mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm">
                     {post.content}
                   </p>
+                  {post.image && (
+                    <div className="mb-3 sm:mb-4 rounded-xl overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.author}
+                        className="w-full h-32 sm:h-40 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center justify-between text-xs text-white/70 mb-2 sm:mb-3">
                     <span>❤️ {post.likes}</span>
                     <span>💬 {post.comments}</span>

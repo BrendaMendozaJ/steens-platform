@@ -29,10 +29,12 @@ export default function Home() {
       setTestimonioActual((prev) => (prev + 1) % testimonios.length)
     }, 4000)
     
-    // Crear partículas flotantes
+    // Crear partículas flotantes (menos en móvil)
     const createParticles = () => {
+      const isMobile = window.innerWidth < 768
+      const particleCount = isMobile ? 8 : 35 // Más partículas
       const newParticles = []
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < particleCount; i++) {
         newParticles.push({
           id: i,
           x: Math.random() * 100,
@@ -72,8 +74,8 @@ export default function Home() {
         ))}
       </div>
       
-      {/* Partículas de conocimiento flotantes */}
-      <div className="knowledge-particles">
+      {/* Partículas de conocimiento flotantes - Solo desktop */}
+      <div className="knowledge-particles hidden md:block">
         <div className="knowledge-particle"></div>
         <div className="knowledge-particle"></div>
         <div className="knowledge-particle"></div>
@@ -85,23 +87,30 @@ export default function Home() {
       </div>
       
       <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 relative z-10">
-        <div className={`ultra-modern-container p-6 sm:p-8 lg:p-16 max-w-5xl w-full text-center text-white transform transition-all duration-1000 ${
+        <div className={`p-6 sm:p-8 lg:p-16 max-w-5xl w-full text-center text-white transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100 animate-bounce-in' : 'translate-y-20 opacity-0'
         }`}>
           
           {/* Header principal con animación */}
           <div className="mb-8">
+            {/* Logo placeholder - Aquí irá tu imagen */}
+            <div className="mb-6 flex justify-center">
+              <div className="w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center hover:scale-105 transition-transform">
+                <img src="/steens-logo.png" alt="STEENS Logo" className="w-full h-full object-contain drop-shadow-2xl" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
+                <span className="text-3xl sm:text-4xl font-black text-white drop-shadow-2xl" style={{display: 'none'}}>S</span>
+              </div>
+            </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black mb-6 sm:mb-8 steens-gradient-text animate-gradient tracking-tight">
               STeens
             </h1>
             <div className="relative">
               <div className="flex flex-col sm:flex-row items-center justify-center mb-6 space-y-4 sm:space-y-0">
-                <div className="thinking-girl-animation sm:mr-4"></div>
+                <div className="thinking-girl-animation sm:mr-4 hidden sm:block"></div>
                 <p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl text-neon font-bold animate-text-glow text-center">
                   Tu futuro STEM empieza aquí
                 </p>
-                <div className="dna-helix-animation sm:ml-4"></div>
+                <div className="dna-helix-animation sm:ml-4 hidden sm:block"></div>
               </div>
               <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 font-semibold text-shimmer animate-shimmer">
                 STEM + Teens
@@ -113,21 +122,21 @@ export default function Home() {
           <div className="scroll-stack grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
             <div className="scroll-stack-item steens-card p-4 sm:p-6 lg:p-8 ultra-3d-card animate-fade-in-up">
               <div className="mb-4 flex justify-center">
-                <div className="microscope-animation"></div>
+                <div className="text-4xl">🔬</div>
               </div>
               <p className="font-black steens-gradient-text text-2xl sm:text-3xl mb-2">+500</p>
               <p className="text-sm sm:text-base font-semibold text-white">Chicas empoderadas</p>
             </div>
             <div className="scroll-stack-item steens-card p-4 sm:p-6 lg:p-8 ultra-3d-card animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <div className="mb-4 flex justify-center">
-                <div className="trophy-animation"></div>
+                <div className="text-4xl">🏆</div>
               </div>
               <p className="font-black steens-gradient-text text-2xl sm:text-3xl mb-2">+1000</p>
               <p className="text-sm sm:text-base font-semibold text-white">Medallas ganadas</p>
             </div>
             <div className="scroll-stack-item steens-card p-4 sm:p-6 lg:p-8 ultra-3d-card animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               <div className="mb-4 flex justify-center">
-                <div className="shield-animation"></div>
+                <div className="text-4xl">🛡️</div>
               </div>
               <p className="font-black steens-gradient-text text-2xl sm:text-3xl mb-2">100%</p>
               <p className="text-sm sm:text-base font-semibold text-white">Ambiente seguro</p>
@@ -138,15 +147,15 @@ export default function Home() {
           <div className="space-y-4 sm:space-y-6 lg:space-y-8 mb-8 sm:mb-12">
             <Link href="/registro" className="group block w-full btn-steens text-white font-bold py-4 sm:py-6 lg:py-8 px-6 sm:px-8 lg:px-12 rounded-2xl sm:rounded-3xl transition-all transform relative overflow-hidden text-base sm:text-lg lg:text-xl animate-pulse-glow">
               <span className="relative flex items-center justify-center">
-                <Icon name="Rocket" className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-4 animate-bounce-gentle" />
+                <span className="text-lg sm:text-xl mr-2 sm:mr-4">➡️</span>
                 <span className="px-2">¡Regístrate para comenzar tu aventura STEM!</span>
-                <Icon name="Achievement" className="w-6 h-6 sm:w-8 sm:h-8 ml-2 sm:ml-4 animate-bounce-gentle" />
+                <span className="text-lg sm:text-xl ml-2 sm:ml-4">✨</span>
               </span>
             </Link>
             
             <Link href="/login" className="flex items-center justify-center w-full steens-card hover-glow-extreme font-bold py-4 sm:py-6 px-6 sm:px-10 rounded-2xl sm:rounded-3xl transition-all text-base sm:text-lg" style={{color: '#ffffff'}}>
               <span className="text-white">Iniciar sesión</span>
-              <Icon name="Chat" className="w-5 h-5 sm:w-7 sm:h-7 ml-2 sm:ml-4" />
+              <span className="text-lg sm:text-xl ml-2 sm:ml-4">💬</span>
             </Link>
           </div>
           
