@@ -16,6 +16,7 @@
     "aws-sdk": "^2.1500.0",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.0",
+    "lucide-react": "^0.541.0",
     "next": "14.0.0",
     "postcss": "^8.4.31",
     "react": "^18",
