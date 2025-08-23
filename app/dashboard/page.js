@@ -233,45 +233,45 @@ export default function Dashboard() {
       <div className="w-full lg:w-1/2 min-h-screen overflow-y-auto bg-gradient-to-b from-gray-900/50 to-black/50 lg:border-r border-white/10">
         <div className="p-4 sm:p-6">
           {/* Header del Feed */}
-          <div className="glass-effect rounded-3xl p-6 mb-6 text-white">
+          <div className="glass-effect rounded-2xl sm:rounded-3xl p-4 sm:p-6 mb-4 sm:mb-6 text-white">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-steens-purple to-steens-pink rounded-full 
-                               flex items-center justify-center text-2xl border-2 border-white/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-steens-purple to-steens-pink rounded-full 
+                               flex items-center justify-center text-xl sm:text-2xl border-2 border-white/20">
                   {avatarActual.emoji}
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold steens-gradient-text">Tu Feed STEM</h2>
-                  <p className="text-sm text-white/70">Personalizado para {user.segmento}</p>
+                  <h2 className="text-lg sm:text-xl font-bold steens-gradient-text">Tu Feed STEM</h2>
+                  <p className="text-xs sm:text-sm text-white/70">Personalizado para {user.segmento}</p>
                 </div>
               </div>
-              <Link href="/feed" className="ultra-modern-badge hover:scale-105 transition-transform text-xs">
+              <Link href="/feed" className="ultra-modern-badge hover:scale-105 transition-transform text-xs px-3 py-1">
                 Ver todo
               </Link>
             </div>
           </div>
 
           {/* Posts del Feed */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {previewPosts.length >= 6 ? (
               previewPosts.map((post) => (
-                <div key={post.id} className="steens-card p-6 hover-lift cursor-pointer">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-xl mr-3">
+                <div key={post.id} className="steens-card p-4 sm:p-6 hover-lift cursor-pointer">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-lg sm:text-xl mr-2 sm:mr-3">
                       {post.avatar}
                     </div>
                     <div className="flex-1">
-                      <p className="font-bold text-white text-sm">{post.author}</p>
+                      <p className="font-bold text-white text-xs sm:text-sm">{post.author}</p>
                       <p className="text-xs text-white/60">{post.time}</p>
                     </div>
                     <div className="bg-steens-purple/30 text-steens-purple px-2 py-1 rounded-full text-xs font-semibold">
                       Para ti
                     </div>
                   </div>
-                  <p className="text-white mb-4 leading-relaxed text-sm">
+                  <p className="text-white mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm">
                     {post.content}
                   </p>
-                  <div className="flex items-center justify-between text-xs text-white/70 mb-3">
+                  <div className="flex items-center justify-between text-xs text-white/70 mb-2 sm:mb-3">
                     <span>❤️ {post.likes}</span>
                     <span>💬 {post.comments}</span>
                     <span>🔄 {post.shares}</span>
@@ -287,23 +287,23 @@ export default function Dashboard() {
               ))
             ) : (
               feedPreviewPosts.slice(0, 8).map((post) => (
-                <div key={post.id} className="steens-card p-6 hover-lift cursor-pointer">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-xl mr-3">
+                <div key={post.id} className="steens-card p-4 sm:p-6 hover-lift cursor-pointer">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-lg sm:text-xl mr-2 sm:mr-3">
                       {post.avatar}
                     </div>
                     <div className="flex-1">
-                      <p className="font-bold text-white text-sm">{post.author}</p>
+                      <p className="font-bold text-white text-xs sm:text-sm">{post.author}</p>
                       <p className="text-xs text-white/60">{post.time}</p>
                     </div>
                     <div className="bg-steens-pink/30 text-steens-pink px-2 py-1 rounded-full text-xs font-semibold">
                       Destacado
                     </div>
                   </div>
-                  <p className="text-white mb-4 leading-relaxed text-sm">
+                  <p className="text-white mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm">
                     {post.content}
                   </p>
-                  <div className="flex items-center justify-between text-xs text-white/70 mb-3">
+                  <div className="flex items-center justify-between text-xs text-white/70 mb-2 sm:mb-3">
                     <span>❤️ {post.likes}</span>
                     <span>💬 {post.comments}</span>
                     <span>🔄 {post.shares}</span>
@@ -333,33 +333,33 @@ export default function Dashboard() {
       <div className="w-full lg:w-1/2 min-h-screen overflow-y-auto">
         <div className="p-4 sm:p-6">
           {/* Header personalizado compacto */}
-          <div className="glass-effect rounded-3xl p-6 mb-6 text-white">
+          <div className="glass-effect rounded-2xl sm:rounded-3xl p-4 sm:p-6 mb-4 sm:mb-6 text-white">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-3">
                 <Link href="/perfil" className="group">
-                  <div className="w-12 h-12 bg-gradient-to-r from-steens-purple to-steens-pink rounded-full 
-                                 flex items-center justify-center text-2xl border-2 border-white/20 
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-steens-purple to-steens-pink rounded-full 
+                                 flex items-center justify-center text-xl sm:text-2xl border-2 border-white/20 
                                  hover:border-steens-purple transition-all duration-200 hover:scale-105">
                     {avatarActual.emoji}
                   </div>
                 </Link>
                 <div>
-                  <h1 className="text-xl font-black steens-gradient-text">
+                  <h1 className="text-lg sm:text-xl font-black steens-gradient-text">
                     ¡Hola, {user.nombre}! 🌟
                   </h1>
-                  <p className="text-sm font-semibold text-white/80">{user.grado} • {user.edad} años</p>
+                  <p className="text-xs sm:text-sm font-semibold text-white/80">{user.grado} • {user.edad} años</p>
                 </div>
               </div>
               
               {/* Estadísticas */}
-              <div className="flex space-x-3">
-                <div className="steens-card p-3 text-center hover-lift">
+              <div className="flex space-x-2 sm:space-x-3">
+                <div className="steens-card p-2 sm:p-3 text-center hover-lift">
                   <p className="text-xs font-semibold text-white/80 mb-1">Puntos</p>
-                  <p className="text-lg font-black steens-gradient-text">{user.puntos}</p>
+                  <p className="text-sm sm:text-lg font-black steens-gradient-text">{user.puntos}</p>
                 </div>
-                <div className="steens-card p-3 text-center hover-lift">
+                <div className="steens-card p-2 sm:p-3 text-center hover-lift">
                   <p className="text-xs font-semibold text-white/80 mb-1">Medallas</p>
-                  <p className="text-lg font-black text-steens-pink">{user.medallas?.length || 0}</p>
+                  <p className="text-sm sm:text-lg font-black text-steens-pink">{user.medallas?.length || 0}</p>
                 </div>
               </div>
             </div>
@@ -404,15 +404,15 @@ export default function Dashboard() {
           </div>
 
           {/* Módulos principales en grid compacto */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
             {/* Test Vocacional */}
-            <Link href="/test-vocacional" className="steens-card p-6 text-white hover-lift group">
+            <Link href="/test-vocacional" className="steens-card p-4 sm:p-6 text-white hover-lift group">
               <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <Icon name="Brain" className="w-16 h-16" />
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <Icon name="Brain" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <h2 className="text-lg font-black mb-2 steens-gradient-text">Test Vocacional</h2>
-                <p className="text-white text-sm mb-4 leading-relaxed">Descubre tu camino STEM ideal</p>
+                <h2 className="text-base sm:text-lg font-black mb-2 steens-gradient-text">Test Vocacional</h2>
+                <p className="text-white text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Descubre tu camino STEM ideal</p>
                 <div className="ultra-modern-badge group-hover:scale-110 transition-transform text-xs">
                   {user.testCompletado ? 'Ver resultados' : 'Comenzar'}
                 </div>
@@ -420,13 +420,13 @@ export default function Dashboard() {
             </Link>
             
             {/* Chat Seguro */}
-            <Link href="/chat" className="steens-card p-6 text-white hover-lift group">
+            <Link href="/chat" className="steens-card p-4 sm:p-6 text-white hover-lift group">
               <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <Icon name="Chat" className="w-16 h-16" />
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <Icon name="Chat" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <h2 className="text-lg font-black mb-2 steens-gradient-text">Chat Seguro</h2>
-                <p className="text-white text-sm mb-4 leading-relaxed">Conecta con chicas STEM</p>
+                <h2 className="text-base sm:text-lg font-black mb-2 steens-gradient-text">Chat Seguro</h2>
+                <p className="text-white text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Conecta con chicas STEM</p>
                 <div className="ultra-modern-badge group-hover:scale-110 transition-transform text-xs">
                   Ir al chat
                 </div>
@@ -434,13 +434,13 @@ export default function Dashboard() {
             </Link>
             
             {/* Comunidad */}
-            <Link href="/comunidad" className="steens-card p-6 text-white hover-lift group">
+            <Link href="/comunidad" className="steens-card p-4 sm:p-6 text-white hover-lift group">
               <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <Icon name="Scientist" className="w-16 h-16" />
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <Icon name="Scientist" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <h2 className="text-lg font-black mb-2 steens-gradient-text">Comunidad</h2>
-                <p className="text-white text-sm mb-4 leading-relaxed">Referentes peruanas</p>
+                <h2 className="text-base sm:text-lg font-black mb-2 steens-gradient-text">Comunidad</h2>
+                <p className="text-white text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Referentes peruanas</p>
                 <div className="ultra-modern-badge group-hover:scale-110 transition-transform text-xs">
                   Explorar
                 </div>
@@ -448,13 +448,13 @@ export default function Dashboard() {
             </Link>
             
             {/* Ciberseguridad */}
-            <Link href="/ciberseguridad" className="steens-card p-6 text-white hover-lift group">
+            <Link href="/ciberseguridad" className="steens-card p-4 sm:p-6 text-white hover-lift group">
               <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <Icon name="Shield" className="w-16 h-16" />
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <Icon name="Shield" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <h2 className="text-lg font-black mb-2 steens-gradient-text">Ciberseguridad</h2>
-                <p className="text-white text-sm mb-4 leading-relaxed">Navega segura en internet</p>
+                <h2 className="text-base sm:text-lg font-black mb-2 steens-gradient-text">Ciberseguridad</h2>
+                <p className="text-white text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Navega segura en internet</p>
                 <div className="ultra-modern-badge group-hover:scale-110 transition-transform text-xs">
                   Aprender
                 </div>
@@ -462,13 +462,13 @@ export default function Dashboard() {
             </Link>
             
             {/* Mentorías */}
-            <Link href="/mentorias" className="steens-card p-6 text-white hover-lift group">
+            <Link href="/mentorias" className="steens-card p-4 sm:p-6 text-white hover-lift group">
               <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <Icon name="Achievement" className="w-16 h-16" />
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <Icon name="Achievement" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <h2 className="text-lg font-black mb-2 steens-gradient-text">Mentorías</h2>
-                <p className="text-white text-sm mb-4 leading-relaxed">Conecta con universitarias</p>
+                <h2 className="text-base sm:text-lg font-black mb-2 steens-gradient-text">Mentorías</h2>
+                <p className="text-white text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Conecta con universitarias</p>
                 <div className="ultra-modern-badge group-hover:scale-110 transition-transform text-xs">
                   {user.areaPrincipal ? 'Ver mentoras' : 'Descubrir'}
                 </div>
@@ -476,13 +476,13 @@ export default function Dashboard() {
             </Link>
 
             {/* Retos STEM */}
-            <Link href="/retos-demo" className="steens-card p-6 text-white hover-lift group">
+            <Link href="/retos-demo" className="steens-card p-4 sm:p-6 text-white hover-lift group">
               <div className="text-center">
-                <div className="mb-4 flex justify-center">
-                  <Icon name="Rocket" className="w-16 h-16" />
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <Icon name="Rocket" className="w-12 h-12 sm:w-16 sm:h-16" />
                 </div>
-                <h2 className="text-lg font-black mb-2 steens-gradient-text">Retos STEM</h2>
-                <p className="text-white text-sm mb-4 leading-relaxed">Desafíos del Perú</p>
+                <h2 className="text-base sm:text-lg font-black mb-2 steens-gradient-text">Retos STEM</h2>
+                <p className="text-white text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Desafíos del Perú</p>
                 <div className="ultra-modern-badge group-hover:scale-110 transition-transform text-xs">
                   Ver retos
                 </div>

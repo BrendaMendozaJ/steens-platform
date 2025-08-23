@@ -30,8 +30,8 @@ export default function Login() {
   
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="glass-effect rounded-3xl p-8 max-w-md w-full text-white">
-        <h1 className="text-3xl font-bold mb-6 text-center steens-gradient-text">
+      <div className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-md w-full text-white">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center steens-gradient-text">
           Iniciar Sesión
         </h1>
         
@@ -49,7 +49,7 @@ export default function Login() {
               required
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60"
+              className="w-full p-3 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 text-sm sm:text-base"
               placeholder="tu@email.com"
             />
           </div>
@@ -61,14 +61,14 @@ export default function Login() {
               required
               value={formData.password}
               onChange={(e) => setFormData({...formData, password: e.target.value})}
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60"
+              className="w-full p-3 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/60 text-sm sm:text-base"
               placeholder="Tu contraseña"
             />
           </div>
           
           <button
             type="submit"
-            className="w-full bg-steens-purple hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+            className="w-full bg-steens-purple hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg sm:rounded-xl transition-colors text-sm sm:text-base"
           >
             Iniciar Sesión
           </button>

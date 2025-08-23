@@ -386,14 +386,14 @@ export default function TestVocacional() {
   if (cargandoResultado) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="glass-effect rounded-3xl p-8 max-w-2xl w-full text-white text-center">
-          <div className="text-6xl mb-6 animate-bounce">🧠</div>
-          <h2 className="text-2xl font-bold mb-4 text-steens-pink">Analizando tu perfil con IA...</h2>
-          <p className="text-lg opacity-90 mb-6">
+        <div className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-white text-center">
+          <div className="text-4xl sm:text-6xl mb-4 sm:mb-6 animate-bounce">🧠</div>
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-steens-pink">Analizando tu perfil con IA...</h2>
+          <p className="text-base sm:text-lg opacity-90 mb-4 sm:mb-6">
             Nuestra inteligencia artificial está procesando tus respuestas para crear 
             un análisis vocacional personalizado específicamente para ti.
           </p>
-          <div className="flex justify-center space-x-2 mb-6">
+          <div className="flex justify-center space-x-2 mb-4 sm:mb-6">
             <div className="w-3 h-3 bg-steens-pink rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-steens-purple rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
             <div className="w-3 h-3 bg-steens-magenta rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
@@ -591,43 +591,43 @@ export default function TestVocacional() {
   
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="glass-effect rounded-3xl p-8 max-w-3xl w-full text-white">
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold text-steens-pink">Test Vocacional STEM</h1>
-            <span className="steens-card px-4 py-2 rounded-xl text-sm font-semibold">
+      <div className="glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-3xl w-full text-white">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 space-y-2 sm:space-y-0">
+            <h1 className="text-xl sm:text-2xl font-bold text-steens-pink">Test Vocacional STEM</h1>
+            <span className="steens-card px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold">
               {preguntaActual + 1} de {preguntasVocacionales.length}
             </span>
           </div>
           
-          <div className="w-full bg-white/20 rounded-full h-3 mb-6">
+          <div className="w-full bg-white/20 rounded-full h-2 sm:h-3 mb-4 sm:mb-6">
             <div 
-              className="bg-gradient-to-r from-steens-pink to-steens-magenta h-3 rounded-full transition-all duration-500"
+              className="bg-gradient-to-r from-steens-pink to-steens-magenta h-2 sm:h-3 rounded-full transition-all duration-500"
               style={{ width: `${((preguntaActual + 1) / preguntasVocacionales.length) * 100}%` }}
             ></div>
           </div>
         </div>
         
-        <div className="mb-8">
-          <div className="mb-4">
-            <span className="bg-steens-purple/20 text-steens-purple px-3 py-1 rounded-full text-sm font-semibold capitalize">
+        <div className="mb-6 sm:mb-8">
+          <div className="mb-3 sm:mb-4">
+            <span className="bg-steens-purple/20 text-steens-purple px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold capitalize">
               {pregunta.tipo.replace('_', ' ')}
             </span>
           </div>
-          <h2 className="text-xl font-semibold mb-6 leading-relaxed">{pregunta.pregunta}</h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 leading-relaxed">{pregunta.pregunta}</h2>
           
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {pregunta.opciones.map((opcion, index) => (
               <button
                 key={index}
                 onClick={() => responder(index)}
-                className="w-full p-5 text-left steens-card rounded-2xl transition-all hover:scale-105 border border-steens-pink/20 hover:border-steens-pink/50"
+                className="w-full p-4 sm:p-5 text-left steens-card rounded-xl sm:rounded-2xl transition-all hover:scale-105 border border-steens-pink/20 hover:border-steens-pink/50"
               >
                 <div className="flex items-center">
-                  <span className="bg-steens-pink/20 text-steens-pink font-bold w-8 h-8 rounded-full flex items-center justify-center mr-4 text-sm">
+                  <span className="bg-steens-pink/20 text-steens-pink font-bold w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-3 sm:mr-4 text-xs sm:text-sm">
                     {String.fromCharCode(65 + index)}
                   </span>
-                  <span className="font-medium">{opcion}</span>
+                  <span className="font-medium text-sm sm:text-base">{opcion}</span>
                 </div>
               </button>
             ))}
@@ -635,8 +635,8 @@ export default function TestVocacional() {
         </div>
         
         <div className="text-center">
-          <div className="steens-card rounded-xl p-4 inline-block">
-            <p className="text-sm opacity-90">
+          <div className="steens-card rounded-lg sm:rounded-xl p-3 sm:p-4 inline-block">
+            <p className="text-xs sm:text-sm opacity-90">
               Tipo: <span className="capitalize font-semibold text-steens-pink">{pregunta.tipo.replace('_', ' ')}</span>
             </p>
           </div>
