@@ -1,32 +1,44 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import moderationService from '../../lib/moderationServiceDemo'
-
-// Hook para moderación avanzada
-const useModerationService = () => {
+// Servicio de moderación con Amazon Comprehend
+const useComprehendModeration = () => {
   const [isLoading, setIsLoading] = useState(false)
 
-  const moderateMessage = async (message, userId = null) => {
+  const moderateMessage = async (message, userId = null, context = {}) => {
     setIsLoading(true)
     try {
-      const context = {
-        userAgent: typeof window !== 'undefined' ? navigator.userAgent : 'unknown',
-        timestamp: new Date().toISOString(),
-        sessionId: typeof window !== 'undefined' ? sessionStorage.getItem('steens-session') || 'anonymous' : 'anonymous'
+      const response = await fetch('/api/moderation/comprehend', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: message,
+          userId,
+          context: {
+            ...context,
+            userAgent: typeof window !== 'undefined' ? navigator.userAgent : 'unknown',
+            timestamp: new Date().toISOString(),
+            sessionId: typeof window !== 'undefined' ? sessionStorage.getItem('steens-session') || 'anonymous' : 'anonymous'
+          }
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Error en moderación')
       }
 
-      const result = await moderationService.moderateMessage(message, userId, context)
-      return result
+      return await response.json()
     } catch (error) {
-      console.error('Error en moderación:', error)
-      // Fallback a moderación básica local
+      console.error('Error en moderación Comprehend:', error)
+      // Fallback local más estricto
       return {
-        blocked: false,
-        flagged: false,
-        message: 'Error en moderación, mensaje permitido',
-        suggestion: '',
-        confidence: 0,
-        sources: ['fallback']
+        blocked: true,
+        flagged: true,
+        message: 'Error de conexión - mensaje bloqueado por seguridad',
+        suggestion: 'Intenta enviar el mensaje nuevamente.',
+        confidence: 0.8,
+        sources: ['local_fallback']
       }
     } finally {
       setIsLoading(false)
@@ -35,6 +47,8 @@ const useModerationService = () => {
 
   return { moderateMessage, isLoading }
 }
+
+
 
 export default function Chat() {
   const [user, setUser] = useState(null)
@@ -73,7 +87,7 @@ export default function Chat() {
     flagged: 0
   })
   const messagesEndRef = useRef(null)
-  const { moderateMessage, isLoading } = useModerationService()
+  const { moderateMessage, isLoading } = useComprehendModeration()
 
   useEffect(() => {
     const userData = localStorage.getItem('steensUser')
@@ -243,7 +257,7 @@ export default function Chat() {
               <div>
                 <h1 className="text-2xl font-bold text-white mb-2">Chat Seguro STEENS 💬</h1>
                 <p className="text-white/75 text-sm">
-                  Conecta con chicas STEM de todo el Perú • IA anti-acoso multicapa activa 🛡️
+                  Conecta con chicas STEM de todo el Perú • Amazon Comprehend AI Protection 🛡️
                 </p>
                 <div className="flex items-center space-x-4 mt-2 text-xs">
                   <span className="bg-green-500/20 text-green-300 px-2 py-1 rounded-full">
@@ -259,7 +273,7 @@ export default function Chat() {
               <div className="steens-card rounded-xl p-3 text-center">
                 <div className="text-2xl">{isLoading ? '🔄' : '🟢'}</div>
                 <p className="text-xs font-semibold">{isLoading ? 'Verificando' : 'Protegido'}</p>
-                <p className="text-xs opacity-75">Multi-API</p>
+                <p className="text-xs opacity-75">Comprehend</p>
               </div>
             </div>
           </div>
