@@ -126,7 +126,7 @@ NODE_ENV=production
 
 ## 📄 Licencia
 
-Este proyecto fue desarrollado para el Hackathon IA + Cyber 2024.
+Este proyecto fue desarrollado para el Hackathon IA + Cyber 2025.
 
 ---
 
