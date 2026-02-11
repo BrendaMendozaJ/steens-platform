@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-sdk/client-comprehend": "^3.873.0",
-    "@aws-sdk/client-dynamodb": "^3.0.0",
-    "@aws-sdk/lib-dynamodb": "^3.0.0",
+    "@aws-sdk/client-comprehend": "^3.987.0",
+    "@aws-sdk/client-dynamodb": "^3.987.0",
+    "@aws-sdk/lib-dynamodb": "^3.987.0",
     "autoprefixer": "^10.4.16",
     "aws-sdk": "^2.1500.0",
     "bcryptjs": "^2.4.3",
